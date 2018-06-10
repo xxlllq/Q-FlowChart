@@ -1,0 +1,50 @@
+			#svgContainer{
+				width: 1000px;
+				margin: 0 auto;
+				border: 1px solid red;
+			}
+			
+			.flex-text-center {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+				word-break: break-all;
+			}
+			
+			.flowChartBox {
+				height: 150px;
+				width: 150px;
+				border-radius: 5px;
+				border: 1px dashed #DB9019;
+				color: #FFF;
+			}
+			
+			.flowChartBox .deviceCode {
+				width: 50%;
+				height: 100%;
+				float: left;
+				border-right: 2px solid #FFF;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+			}
+			
+			.flowChartBox .procee-planAndActual {
+				width: 50%;
+				height: 100%;
+			}
+			
+			.flowChartBox .procee-planAndActual .item {
+				width: 100%;
+				height: 50%;
+			}
+			
+			.flowChartBox .procee-planAndActual .item:nth-child(1) {
+				margin-top: -2px;
+			}
+			
+			.flowChartBox .procee-planAndActual .item.border-bottom-2 {
+				border-bottom: 2px solid #FFF;
+			}

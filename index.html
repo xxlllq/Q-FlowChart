@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>流程图插件示例</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+	</head>
+
+	<body>
+		<!--<canvas id="canvas" width="400" height="400"></canvas>-->
+		<div id="svgContainer">
+			<svg height='1000px' width='1000px' xmlns="http://www.w3.org/2000/svg">
+				<defs>
+					<marker id="arrow" markerWidth="10" markerHeight="10" refx="0" refy="3" orient="auto" markerUnits="strokeWidth">
+						<path d="M0,0 L0,6 L9,3 z" fill="#FBBD06" />
+					</marker>
+				</defs>
+
+				<!--动态生成的SVG代码-->
+				<svg id="svg" />
+			</svg>
+		</div>
+
+		<!--Template-->
+		<!--<script id="template" type="text/template">
+			<foreignobject x=" x + '" y=" y + '" width="100" height="100">
+
+				<body xmlns="http://www.w3.org/1999/xhtml">
+					<div class="flowChartBox  flex-text-center">
+						<div class="deviceCode ">设备号<br/> {{item.deviceCode}}</div>
+						<div class="procee-planAndActual">
+							<div class="item flex-text-center border-bottom-2">
+								工序名称<br/> {{item.process}}
+							</div>
+							<div class="item flex-text-center">
+								计划/实际</br> {{item.plan}} + / {{item.actual }}
+							</div>
+						</div>
+					</div>
+				</body>
+			</foreignobject>
+		</script>-->
+
+		<script type="text/javascript" src="js/flow-chart.js"></script>
+		<script>
+			//生成流程图
+			var flowChart = new FlowChart({
+				selector: 'svg',
+				nodeWidth: 150, //节点（格子）的宽度
+				nodeHeight: 150, //节点（格子）的高度
+				nodeIntervalWidth: 100, //节点（格子）之间间隔的宽度
+				nodeIntervalHeight: 77, //节点（格子）之间间隔的高度
+				flowChartBGColor: '#C9CABB', //背景色
+				flowChartBorderColor: '#DB9019', //边框颜色
+				connectLinColor: '#FF0000', //连接线颜色
+				arrowColor: '#FBBD06', //箭头颜色
+				arrowPosition: 15, //箭头平移位置量
+				method: 'multiple',//multiple OR single
+				dataSource: [{
+					deviceCode: 'C001',
+					process: '上料',
+					plan: 450,
+					actual: 450,
+					order: '1'
+				}, {
+					deviceCode: 'C003-1',
+					process: '锯',
+					plan: 450,
+					actual: 450,
+					order: '3-1',
+					orderPre: '2-2'
+				}, {
+					deviceCode: 'C003-2',
+					process: '热处理',
+					plan: 450,
+					actual: 450,
+					order: '3-2',
+					orderPre: '2-1'
+				}, {
+					deviceCode: 'C003-3',
+					process: '热处理',
+					plan: 450,
+					actual: 450,
+					order: '3-3',
+					orderPre: '2-1'
+				}, {
+					deviceCode: 'C003-4',
+					process: '热处理',
+					plan: 450,
+					actual: 450,
+					order: '3-4',
+					orderPre: '2-1'
+				}, {
+					deviceCode: 'C002-1',
+					process: '打磨',
+					plan: 450,
+					actual: 450,
+					order: '2-1',
+					orderPre: '1'
+				}, {
+					deviceCode: 'C002-2',
+					process: '打磨',
+					plan: 450,
+					actual: 450,
+					order: '2-2',
+					orderPre: '1'
+				}, {
+					deviceCode: 'C002-3',
+					process: '打磨',
+					plan: 450,
+					actual: 450,
+					order: '2-3',
+					orderPre: '1'
+				}, {
+					deviceCode: 'C004-1',
+					process: '热处理',
+					plan: 450,
+					actual: 450,
+					order: '4-1',
+					orderPre: '3-2'
+				}, {
+					deviceCode: 'C004-2',
+					process: '热处理',
+					plan: 450,
+					actual: 450,
+					order: '4-2',
+					orderPre: '3-1',
+				}, {
+					deviceCode: 'C004-3',
+					process: '热处理',
+					plan: 450,
+					actual: 450,
+					order: '4-3',
+					orderPre: '3-1,3-2,3-3',
+				}],
+			});
+		</script>
+	</body>
+
+</html>
